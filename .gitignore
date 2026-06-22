@@ -1,0 +1,10 @@
+.env
+__pycache__/
+receipts/
+exports/
+*.xlsx
+*.jpg
+*.jpeg
+*.png
+ngrok.exe
+*.json

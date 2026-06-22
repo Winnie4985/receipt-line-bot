@@ -1,0 +1,9 @@
+flask
+gunicorn
+line-bot-sdk
+openai
+python-dotenv
+pandas
+openpyxl
+gspread
+google-auth
