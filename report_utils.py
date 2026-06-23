@@ -115,9 +115,9 @@ def build_line_reply_text(invoice_data: pd.DataFrame, latest_invoice: dict) -> s
 
     monthly_total = int(target_month_data["總計"].sum())
 
-    reply_text = f"""發票已辨識並寫入會計 Excel。
+    reply_text = f"""✅ 發票已辨識並寫入會計 Excel。
 
-本筆資料：
+🧾 本筆資料：
 憑證日期：{latest_invoice.get("日期", "")}
 上傳月份：{latest_invoice.get("上傳月份", "")}
 類別：{latest_invoice.get("類別", "")}
@@ -127,17 +127,17 @@ def build_line_reply_text(invoice_data: pd.DataFrame, latest_invoice: dict) -> s
 {month_title} 付款科目支出：
 {chr(10).join(category_lines)}
 
-交際費額度：
+🤝 交際費額度：
 已使用：{entertainment_used:,} 元
 額度上限：{entertainment_budget:,} 元
 剩餘：{entertainment_remaining:,} 元
 
-職工福利額度：
+🎈 職工福利額度：
 已使用：{welfare_used:,} 元
 額度上限：{welfare_budget:,} 元
 剩餘：{welfare_remaining:,} 元
 
-{month_title} 總支出：{monthly_total:,} 元
+💸 {month_title} 總支出：{monthly_total:,} 元
 """
 
     return reply_text

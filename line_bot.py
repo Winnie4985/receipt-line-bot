@@ -82,7 +82,7 @@ def handle_image_message(event):
 
         line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text="已收到發票圖片，正在辨識並寫入 Excel，請稍等。")
+            TextSendMessage(text="✅ 已收到發票圖片\n🔄 正在辨識並寫入 Excel，請稍等～")
         )
 
         new_invoice = parse_invoice_image(str(image_path))
