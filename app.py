@@ -161,6 +161,44 @@ def clean_invoice_data(invoice: dict) -> dict:
     if str(cleaned["需人工確認"]).strip() == "":
         cleaned["需人工確認"] = "是"
 
+
+    summary = str(cleaned.get("摘要", ""))
+
+    entertainment_keywords = [
+        "客戶",
+        "廠商",
+        "招待",
+        "拜訪",
+        "伴手禮",
+        "業務餐敘",
+        "請客戶",
+        "客戶飲品",
+        "客戶飲料",
+        "客戶餐費",
+        "客戶聚餐",
+        "客戶招待",
+    ]
+
+    welfare_keywords = [
+        "員工",
+        "員工午餐",
+        "員工餐費",
+        "員工便當",
+        "員工聚餐",
+        "公司聚餐",
+        "下午茶",
+        "員工福利",
+        "尾牙",
+        "春酒",
+        "慶生",
+    ]
+
+    if any(keyword in summary for keyword in welfare_keywords):
+        cleaned["類別"] = "職工福利"
+
+    if any(keyword in summary for keyword in entertainment_keywords):
+        cleaned["類別"] = "交際費"
+
     return cleaned
 
 
